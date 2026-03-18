@@ -1,0 +1,15 @@
+{
+  "name": "Orbin DJing",
+  "short_name": "DJing",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f1e8",
+  "theme_color": "#2c5f4f",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
