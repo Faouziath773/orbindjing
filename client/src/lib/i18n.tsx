@@ -147,7 +147,8 @@ const translations: Translations = {
         subtitle: "Suivi des inscriptions confirmées.",
         export: "Export CSV",
         search: "Rechercher par nom, téléphone, ville",
-        count: ({ count }: { count: number }) => `${count} candidature(s)`,
+        count: (params?: Record<string, unknown>) =>
+          `${Number(params?.count ?? 0)} candidature(s)`,
         table: {
           name: "Nom",
           phone: "Téléphone",
@@ -337,7 +338,8 @@ const translations: Translations = {
         subtitle: "Track confirmed registrations.",
         export: "Export CSV",
         search: "Search by name, phone, city",
-        count: ({ count }: { count: number }) => `${count} application(s)`,
+        count: (params?: Record<string, unknown>) =>
+          `${Number(params?.count ?? 0)} application(s)`,
         table: {
           name: "Name",
           phone: "Phone",
