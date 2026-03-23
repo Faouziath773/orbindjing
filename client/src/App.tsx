@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import Success from "./pages/Success";
 import Admin from "./pages/Admin";
 import { I18nProvider, useI18n } from "./lib/i18n";
-import obirinLogo from "./assets/obirin-logo.svg";
+import obirinLogo from "./assets/logo-try.png";
 
 function AppContent() {
   const { lang, setLang, t } = useI18n();

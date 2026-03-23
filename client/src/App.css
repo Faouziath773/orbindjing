@@ -111,7 +111,7 @@
 .hero-text {
   color: rgba(13, 13, 13, 0.72);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1.6rem;
 }
 
@@ -300,13 +300,13 @@
 }
 
 .status {
-  font-weight: 600;
+  font-weight: 700;
   color: #0d0d0d;
 }
 
 .error {
   color: #e10600;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .success-card {
