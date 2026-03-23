@@ -18,7 +18,7 @@ export default function Success() {
 
     const confirm = async () => {
       try {
-        const response = await api.get("/api/confirm", {
+        const response = await api.get("/confirm", {
           params: { transaction_id: transactionId },
         });
         const resultStatus = response.data?.data?.status;

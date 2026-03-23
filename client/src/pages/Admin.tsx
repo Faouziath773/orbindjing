@@ -55,8 +55,7 @@ export default function Admin() {
   }>({});
   const requiredCode = import.meta.env.VITE_ADMIN_CODE as string | undefined;
   const apiBase =
-    (api.defaults.baseURL ? String(api.defaults.baseURL) : "").trim() ||
-    "http://localhost:4000";
+    (api.defaults.baseURL ? String(api.defaults.baseURL) : "").trim() || "/api";
 
   const buildAdminHeaders = (code: string) =>
     code ? { "x-admin-code": code } : undefined;
@@ -64,7 +63,7 @@ export default function Admin() {
   const loadCandidates = async (query = "") => {
     setStatusKey("loading");
     try {
-      const response = await api.get("/api/admin/candidates", {
+      const response = await api.get("/admin/candidates", {
         params: query ? { search: query } : undefined,
         headers: buildAdminHeaders(accessCode),
       });
@@ -78,7 +77,7 @@ export default function Admin() {
 
   const loadStats = async () => {
     try {
-      const response = await api.get("/api/admin/stats", {
+      const response = await api.get("/admin/stats", {
         headers: buildAdminHeaders(accessCode),
       });
       setStats(response.data?.data || null);
@@ -90,7 +89,7 @@ export default function Admin() {
 
   const verifyAccess = async (code: string) => {
     const response = await api.post(
-      "/api/admin/verify",
+      "/admin/verify",
       { code },
       { headers: buildAdminHeaders(code) }
     );
@@ -101,7 +100,7 @@ export default function Admin() {
     setAdminStatusKey("admin.admins.status.loading");
     setAdminStatusOverride("");
     try {
-      const response = await api.get("/api/admin/access", {
+      const response = await api.get("/admin/access", {
         headers: buildAdminHeaders(accessCode),
       });
       setAdmins(response.data?.data || []);
@@ -219,7 +218,7 @@ export default function Admin() {
     setAdminStatusOverride("");
     try {
       await api.post(
-        "/api/admin/access",
+        "/admin/access",
         { name: adminName.trim(), code },
         { headers: buildAdminHeaders(accessCode) }
       );
@@ -251,7 +250,7 @@ export default function Admin() {
     setAdminStatusKey("admin.admins.status.deleting");
     setAdminStatusOverride("");
     try {
-      await api.delete(`/api/admin/access/${id}`, {
+      await api.delete(`/admin/access/${id}`, {
         headers: buildAdminHeaders(accessCode),
       });
       setAdminStatusKey("admin.admins.status.deleted");
@@ -333,7 +332,7 @@ export default function Admin() {
                 <h1>{t("admin.candidates.title")}</h1>
                 <p>{t("admin.candidates.subtitle")}</p>
               </div>
-              <a className="cta" href={`${apiBase}/api/admin/candidates.csv`}>
+              <a className="cta" href={`${apiBase}/admin/candidates.csv`}>
                 {t("admin.candidates.export")}
               </a>
             </div>
@@ -467,7 +466,7 @@ export default function Admin() {
                 <button className="cta" type="button" onClick={loadStats}>
                   {t("admin.settings.refreshStats")}
                 </button>
-                <a className="cta" href={`${apiBase}/api/admin/candidates.csv`}>
+                <a className="cta" href={`${apiBase}/admin/candidates.csv`}>
                   {t("admin.settings.export")}
                 </a>
                 <button className="cta" type="button" onClick={handleLogout}>

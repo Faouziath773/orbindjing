@@ -35,7 +35,7 @@ export default function Register() {
     setError("");
 
     try {
-      const response = await api.post("/api/register", {
+      const response = await api.post("/register", {
         ...form,
         age: Number(form.age),
       });
